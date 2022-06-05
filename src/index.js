@@ -15,15 +15,22 @@ class App extends Component {
       super();
       this.state = {
         name: "React",
-        showLeague: true,
-        showSeason: true,
-        leagueData: []
+        showLeague: false,
+        showSeason: false,
+        showInfo: true,
+        selectedLeague: "",
+        selectedSeason: 0,
+        leagueData: [],
+        selectedLeagueSeason: []
       };
+      this.handleLeagueChange = this.handleLeagueChange.bind(this);
+      this.handleSeasonsChange = this.handleSeasonsChange.bind(this);
       this.hideComponent = this.hideComponent.bind(this);
     }
   
     componentWillMount(){
       this.getLeagueData()
+      this.getStatsData()
     }
     getLeagueData(){
       fetch('league.json'
@@ -39,10 +46,54 @@ class App extends Component {
           return response.json();
         })
         .then(myJson => {
-          this.setState({leagueData: myJson.response})
+          this.setState({leagueData: myJson.response, showLeague: true})
           console.log(myJson);
         });
     }
+    getStatsData(){
+      fetch('statistics.json'
+      ,{
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+      }
+      )
+        .then(response => {
+          console.log(response)
+          return response.json();
+        })
+        .then(myJson => {
+          this.setState({statData: myJson.response, showStat: true})
+          console.log(myJson);
+        });
+    }
+    
+    handleSeasonsChange(event){
+      this.setState({selectedSeason: event.target.value});
+      const selectedSeason = this.state.leagueData.filter((statsObj) => statsObj.league.name === event.target.value)
+      if(selectedSeason.length > 0){
+        this.setState({selectedSeason:selectedSeason[0].league.name,showInfo:true})
+      }
+      else{
+        this.setState({showInfo:false})
+      }
+    }
+    handleLeagueChange(event){
+      const selectedLeague = this.state.leagueData.filter((leagueObj) => leagueObj.league.name === event.target.value)
+      console.log(selectedLeague)
+      if(selectedLeague.length > 0){
+        this.setState({selectedLeague:selectedLeague[0].league.name, selectedLeagueSeason:selectedLeague[0].seasons,showSeason : true})
+      }
+      else{
+        this.setState({selectedLeague:"", selectedLeagueSeason:[], showSeason:false})
+      }
+      
+    }
+    handleInfoChange(event){
+      this.setState({selectedSeason: event.target.value});
+    }
+
     hideComponent(name) {
       console.log(name);
       switch (name) {
@@ -52,14 +103,16 @@ class App extends Component {
         case "showHideDemo2":
           this.setState({ showSeason: !this.state.showSeason });
           break;
+        case "showHideInfo":
+          this.setState({ showInfo: !this.state.showSeason });
+          break;
         
         default:
           null;
       }
     }
-  
     render() {
-      const { showLeague, showSeason} = this.state;
+      const { showLeague, showSeason, showInfo} = this.state;
       return (
         <div className={styles.header} >
         <div >
@@ -69,53 +122,41 @@ class App extends Component {
           return <div>{leagueObj.league.name}-{leagueObj.country.name}-{leagueObj.seasons.map(seasonObj=> seasonObj.year+",")}</div>
         })} */}
         
-          <select className='leagueDrop'>
+          {showLeague && <select onChange={this.handleLeagueChange} className='leagueDrop'>
             <option>Select League</option>
             {this.state.leagueData.map((leagueObj,key) => {
-            return <option>{leagueObj.league.name}</option>
+            return <option key={key}>{leagueObj.league.name}</option>
             
         })}
         </select>
-        <select className='seasonDrop'>
+    }
+        {showSeason &&<select onChange={this.handleSeasonsChange}  className='seasonDrop'>
             <option>Select Year</option>
-            {this.state.leagueData.map((leagueObj,key) => {
-            return <option>{leagueObj.seasons.year}</option>
+            {this.state.selectedLeagueSeason.map((seasonObj,key) => {
+            return <option key={key}>{seasonObj.year}</option>
             
         })}
         </select>
-          
+    }
           {/* <div style={{display: "inline"}}>
           {showSeason && <Dropdown2 />}  
                       
           </div> */}
           <div className={styles.buttonDiv } >  
-            <Button onClick={() => this.hideComponent("showHideDemo2")} variant="primary">Button #1</Button>
+            <Button onClick={() => this.hideComponent("showHideInfo")} variant="primary">Button #1</Button>
           </div>
         </div>
-        {this.state.leagueData.map((leagueObj,key) => {
+        {/* {this.state.leagueData.map((leagueObj,key) => {
           return <div>{leagueObj.league.name}-{leagueObj.country.name}-{leagueObj.seasons.map(seasonObj=> seasonObj.year+",")}</div>
-        })}
+        })} */}
         <div style={{display:"inline"}}>
           <div className={styles.listview} style={{height: "100%",width:"50%"}}>
-            <div >
-              <h2>Column 1</h2>
-              
-              <p>Some text..</p>
-            </div>
-            <br style={{clear:"both"}}/>
-            <div >
-              <h2>Column 2</h2>
-              <p>Some text..</p>
-            </div>
+          {showInfo && this.state.statData.map((teamObj,key) => {
+          return <div>{teamObj.league.map(countryObj=> countryObj.league+",")}</div>
 
-            <div >
-              <h2>Column 3</h2>
-              <p>Some text..</p>
-            </div>
-            <div>
-              <h2>Column 4</h2>
-              <p>Some text..</p>
-            </div>
+          
+          
+        })}
           </div>
             <div style={{height: "100%",width:"50%"}}>
               Content
