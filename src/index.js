@@ -5,8 +5,6 @@ import './index.css';
 import styles from './style.module.css';
 import { render } from "react-dom";
 import reportWebVitals from './reportWebVitals';
-import Dropdown from './Dropdown';
-import Dropdown2 from './List2.js';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,6 +19,7 @@ class App extends Component {
         selectedLeague: "",
         selectedSeason: 0,
         leagueData: [],
+        statData: [],
         selectedLeagueSeason: []
       };
       this.handleLeagueChange = this.handleLeagueChange.bind(this);
@@ -66,6 +65,7 @@ class App extends Component {
         .then(myJson => {
           this.setState({statData: myJson.response, showStat: true})
           console.log(myJson);
+          console.log(myJson.response);
         });
     }
     
@@ -149,16 +149,26 @@ class App extends Component {
         {/* {this.state.leagueData.map((leagueObj,key) => {
           return <div>{leagueObj.league.name}-{leagueObj.country.name}-{leagueObj.seasons.map(seasonObj=> seasonObj.year+",")}</div>
         })} */}
+        var arr = []
+        {console.log("434")}
+        {console.log(this.state.leagueData)}
+        {console.log(this.state.statData)}
+
         <div style={{display:"inline"}}>
           <div className={styles.listview} style={{height: "100%",width:"50%"}}>
-          {showInfo && this.state.statData.map((teamObj,key) => {
-          return <div>{teamObj.league.map(countryObj=> countryObj.league+",")}</div>
-
-          
-          
+            
+          {this.state.statData.map((teamObj,key) => {
+          return <div style={{width:"40%"}}>
+              <div className={styles.optionImg}>
+               <img style={{height:"auto",width:"auto"}} src={teamObj.league.logo} alt="Logo"></img>
+             </div>
+              <div className={styles.optionImg}>
+              {teamObj.league.name}
+              </div>
+             </div>
         })}
           </div>
-            <div style={{height: "100%",width:"50%"}}>
+            <div>
               Content
             </div>
           </div>

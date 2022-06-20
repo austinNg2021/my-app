@@ -8,3 +8,7 @@
 .listview{
   background-color: gainsboro;
 }
+.optionImg{
+  width: 50%;
+  float: left;
+}

@@ -11,7 +11,7 @@
     "current": 1,
     "total": 1
   },
-  "response": {
+  "response": [{
     "league": {
       "id": 39,
       "name": "Premier League",
@@ -277,4 +277,5 @@
       }
     }
   }
+]
 }
