@@ -9,6 +9,22 @@
   background-color: gainsboro;
 }
 .optionImg{
+  /* float: left; */
+  /* height: auto;
+  width: auto; */
+  display:inline-flex;
+  text-align: center;
+  /* padding:5px; */
+  vertical-align: middle;
+}
+.optionText{
   width: 50%;
-  float: left;
+  display:inline-block;
+}
+img{
+  width: 50px;
+  padding: 5px;
+}
+.leagueListElement{
+  border: 1px solid;
 }

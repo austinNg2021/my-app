@@ -1,0 +1,335 @@
+{
+  "get": "teams",
+  "parameters": {
+    "league": "4",
+    "season": "2012"
+  },
+  "errors": [],
+  "results": 16,
+  "paging": {
+    "current": 1,
+    "total": 1
+  },
+  "response": [
+    {
+      "team": {
+        "id": 2,
+        "name": "France",
+        "code": "FRA",
+        "country": "France",
+        "founded": 1919,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/2.png"
+      },
+      "venue": {
+        "id": 631,
+        "name": "Stade de France",
+        "address": "Rue Jules Rimet",
+        "city": "Saint-Denis",
+        "capacity": 81338,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/631.png"
+      }
+    },
+    {
+      "team": {
+        "id": 3,
+        "name": "Croatia",
+        "code": "CRO",
+        "country": "Croatia",
+        "founded": 1912,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/3.png"
+      },
+      "venue": {
+        "id": 412,
+        "name": "Stadion Maksimir",
+        "address": "Maksimirska cesta 128",
+        "city": "Zagreb",
+        "capacity": 37168,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/412.png"
+      }
+    },
+    {
+      "team": {
+        "id": 4,
+        "name": "Russia",
+        "code": "RUS",
+        "country": "Russia",
+        "founded": 1912,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/4.png"
+      },
+      "venue": {
+        "id": 1327,
+        "name": "RZD Arena",
+        "address": "ul. Bol&apos;shaya Cherkizovskaya 125",
+        "city": "Moskva",
+        "capacity": 28800,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1327.png"
+      }
+    },
+    {
+      "team": {
+        "id": 5,
+        "name": "Sweden",
+        "code": "SWE",
+        "country": "Sweden",
+        "founded": 1904,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/5.png"
+      },
+      "venue": {
+        "id": 1501,
+        "name": "Friends Arena",
+        "address": "Råsta Strandväg 1",
+        "city": "Solna",
+        "capacity": 54329,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1501.png"
+      }
+    },
+    {
+      "team": {
+        "id": 9,
+        "name": "Spain",
+        "code": "SPA",
+        "country": "Spain",
+        "founded": 1913,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/9.png"
+      },
+      "venue": {
+        "id": 1456,
+        "name": "Estadio Santiago Bernabéu",
+        "address": "Avenida de Concha Espina 1, Chamartín",
+        "city": "Madrid",
+        "capacity": 85454,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1456.png"
+      }
+    },
+    {
+      "team": {
+        "id": 10,
+        "name": "England",
+        "code": "ENG",
+        "country": "England",
+        "founded": 1863,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/10.png"
+      },
+      "venue": {
+        "id": 489,
+        "name": "Wembley Stadium",
+        "address": "Stadium Way, Wembley, Brent",
+        "city": "London",
+        "capacity": 90000,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/489.png"
+      }
+    },
+    {
+      "team": {
+        "id": 21,
+        "name": "Denmark",
+        "code": "DEN",
+        "country": "Denmark",
+        "founded": 1889,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/21.png"
+      },
+      "venue": {
+        "id": 11600,
+        "name": "Parken",
+        "address": "Øster Allé 50",
+        "city": "København",
+        "capacity": 38065,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/11600.png"
+      }
+    },
+    {
+      "team": {
+        "id": 24,
+        "name": "Poland",
+        "code": "POL",
+        "country": "Poland",
+        "founded": 1919,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/24.png"
+      },
+      "venue": {
+        "id": 1245,
+        "name": "Stadion Narodowy",
+        "address": "Aleja Księcia J. Poniatowskiego 1",
+        "city": "Warszawa",
+        "capacity": 58145,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1245.png"
+      }
+    },
+    {
+      "team": {
+        "id": 25,
+        "name": "Germany",
+        "code": "GER",
+        "country": "Germany",
+        "founded": 1900,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/25.png"
+      },
+      "venue": {
+        "id": 694,
+        "name": "Olympiastadion Berlin",
+        "address": "Olympischer Platz 3",
+        "city": "Berlin",
+        "capacity": 77116,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/694.png"
+      }
+    },
+    {
+      "team": {
+        "id": 27,
+        "name": "Portugal",
+        "code": "POR",
+        "country": "Portugal",
+        "founded": 1914,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/27.png"
+      },
+      "venue": {
+        "id": 1262,
+        "name": "Estádio Nacional",
+        "address": null,
+        "city": "Jamor, Oeiras",
+        "capacity": 38000,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1262.png"
+      }
+    },
+    {
+      "team": {
+        "id": 768,
+        "name": "Italy",
+        "code": "ITA",
+        "country": "Italy",
+        "founded": 1898,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/768.png"
+      },
+      "venue": {
+        "id": 910,
+        "name": "Stadio Olimpico",
+        "address": "Viale dei Gladiatori, 2 / Via del Foro Italico",
+        "city": "Roma",
+        "capacity": 68530,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/910.png"
+      }
+    },
+    {
+      "team": {
+        "id": 770,
+        "name": "Czech Republic",
+        "code": "CZE",
+        "country": "Czech-Republic",
+        "founded": 1901,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/770.png"
+      },
+      "venue": {
+        "id": 11601,
+        "name": "Generali Česká pojišťovna Arena",
+        "address": "Milady Horákové 1066/98, Letná",
+        "city": "Praha",
+        "capacity": 20854,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/11601.png"
+      }
+    },
+    {
+      "team": {
+        "id": 772,
+        "name": "Ukraine",
+        "code": "UKR",
+        "country": "Ukraine",
+        "founded": 1991,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/772.png"
+      },
+      "venue": {
+        "id": 1593,
+        "name": "NSK Olimpijs'kyj",
+        "address": "vul. Chervonoarmijs&apos;ka 55",
+        "city": "Kiev",
+        "capacity": 70050,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1593.png"
+      }
+    },
+    {
+      "team": {
+        "id": 776,
+        "name": "Rep. Of Ireland",
+        "code": "IRE",
+        "country": "Ireland",
+        "founded": 1921,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/776.png"
+      },
+      "venue": {
+        "id": 1970,
+        "name": "Aviva Stadium",
+        "address": "62 Lansdowne Road",
+        "city": "Dublin",
+        "capacity": 51700,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1970.png"
+      }
+    },
+    {
+      "team": {
+        "id": 1117,
+        "name": "Greece",
+        "code": "GRE",
+        "country": "Greece",
+        "founded": 1926,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/1117.png"
+      },
+      "venue": {
+        "id": 761,
+        "name": "Olympiako Stadio Spyros Louis",
+        "address": "37 Kifissias Avenue, Maroussi",
+        "city": "Athens",
+        "capacity": 71030,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/761.png"
+      }
+    },
+    {
+      "team": {
+        "id": 1118,
+        "name": "Netherlands",
+        "code": "NET",
+        "country": "Netherlands",
+        "founded": 1889,
+        "national": true,
+        "logo": "https://media.api-sports.io/football/teams/1118.png"
+      },
+      "venue": {
+        "id": 1117,
+        "name": "Johan Cruijff Arena",
+        "address": "ArenA Boulevard 1",
+        "city": "Amsterdam",
+        "capacity": 54990,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/1117.png"
+      }
+    }
+  ]
+}
