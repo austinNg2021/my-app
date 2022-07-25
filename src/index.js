@@ -6,7 +6,14 @@ import { render } from "react-dom";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {apiCall, API } from './util/apiCall';
-
+import Header from './header.js';
+import Mock from './mock.js';
+import Sidebar from './sidebar.js'
+import Result from './result.js'
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
+export const mock =Mock;   
 class App extends Component {
     constructor() {
       super();
@@ -97,91 +104,33 @@ class App extends Component {
           null;
       }
     }
+
+
     render() {
       
-      const { showLeague, showSeason, showInfo, showStat, leagueData,statData,teamsData} = this.state;
+      const { showLeague, showSeason, showInfo, showStat, leagueData,statData,teamsData, selectedLeagueSeason, handleTeamClicks} = this.state;
       var arr = []
-        console.log("434")
-        console.log(leagueData)
-        console.log(statData)
+
       return (
+
+        <body>
         <div className={styles.header} >
+          <Header showLeague={showLeague} showSeason={showSeason} leagueData={leagueData} statData={statData} handleSeasonsChange={this.handleSeasonsChange} handleLeagueChange={this.handleLeagueChange} selectedLeagueSeason={selectedLeagueSeason} hideComponent={this.hideComponent}/>
         <div >
-          {showLeague && <select onChange={this.handleLeagueChange} className='leagueDrop'>
-            <option>Select League</option>
-            {this.state.leagueData && this.state.leagueData.map((leagueObj,key) => {
-            return <option key={key} value={leagueObj.league.id}>{leagueObj.league.name}</option>
-            
-        })}
-        </select>
-    }
-        {showSeason &&<select onChange={this.handleSeasonsChange}  className='seasonDrop'>
-            <option>Select Year</option>
-            {this.state.selectedLeagueSeason.map((seasonObj,key) => {
-            return <option key={key}>{seasonObj.year}</option>
-            
-        })}
-        </select>
-    }
-          {showSeason && <div className={styles.buttonDiv } >  
-            <Button onClick={() => this.hideComponent("showHideInfo")} variant="primary">Search</Button>
-          </div>}
+
         </div>
         <div style={{display:"flex"}}>
-          <div className={styles.listview} style={{height: "100%",width:"40%",display:"inline-block"}}>
-            
-          {teamsData.map((teamObj,key) => {
-          return <div className={styles.leagueListElement} onClick={() => this.handleTeamClicks(teamObj.team.id)}>
-              <div className={styles.optionImg}>
-               <img style={{display:"inline-block"}} src={teamObj.team.logo} alt="Logo"></img>
-               <p className={styles.optionText}>{teamObj.team.name}</p>
-             </div>
 
-             </div>
-        })}
-          </div>
-          {showStat && <div style={{display:"inline-block",height:"100%"}}>
-            {statData && Object.keys(statData).length > 0 && (<div  style={{width:"100%"}}>
-                  <div>
-                  League: {statData.league.name}
-                </div>
-                  <div>
-                  <p>Team: {statData.team.name}</p>
-                  </div>
-                  <div style={{display:"inline-block",height:"100%",padding:"5px"}}>
-                    <p>Fixture</p>
-                    <p>Wins</p>
-                    <p>Draws</p>
-                    <p>Losses</p>
-                  </div>
-                  <div style={{display:"inline-block",height:"100%",padding:"5px"}}>
-                    <p>Home</p>
-                    <p>{statData.fixtures.wins.home}</p>
-                    <p>{statData.fixtures.draws.home}</p>
-                    <p>{statData.fixtures.loses.home}</p>
-                  </div>
-                  <div style={{display:"inline-block",height:"100%",padding:"5px"}}>
-                    <p>Away</p>
-                    <p>{statData.fixtures.wins.away}</p>
-                    <p>{statData.fixtures.draws.away}</p>
-                    <p>{statData.fixtures.loses.away}</p>
-                  </div>
-                  <div style={{display:"inline-block",height:"100%",padding:"5px"}}>
-                    <p>Total</p>
-                    <p>{statData.fixtures.wins.total}</p>
-                    <p>{statData.fixtures.draws.total}</p>
-                    <p>{statData.fixtures.loses.total}</p>
-                  </div>
-                </div>
-            )}
-            </div>}
+          <Sidebar teamsData={teamsData} handleTeamClicks={this.handleTeamClicks}/>
+          <Result statData={statData} showStat={showStat}/>
+
           </div>
 
         </div>
         
-        
+        </body>
       );
     }
   }
-  
+  // render(<Car />,document.getElementById("root"));
   render(<App />, document.getElementById("root"));
