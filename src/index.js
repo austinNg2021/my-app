@@ -58,6 +58,7 @@ class App extends Component {
     
     handleSeasonsChange(event){
       this.setState({selectedSeason: event.target.value});
+      // this.setState({selectedSeason: event});
     }
     handleTeamClicks(teamId){
       this.setState({selectedTeam:teamId},() => this.getStatsData());
@@ -119,7 +120,7 @@ class App extends Component {
         <div >
 
         </div>
-        <div style={{display:"flex"}}>
+        <div style={{display:"flex", width:"100%"}}>
 
           <Sidebar teamsData={teamsData} handleTeamClicks={this.handleTeamClicks}/>
           <Result statData={statData} showStat={showStat}/>

@@ -11,9 +11,9 @@ export default class Result extends Component{
     render(){
         const {showStat, statData} = this.props;
         return(
-            <div>
-            {showStat && <div style={{display:"inline-block",height:"100%"}}>
-            {statData && Object.keys(statData).length > 0 && (<div  style={{width:"100%"}}>
+            <>
+            {showStat && <div style={{display:"inline-block",height:"100%",    width: "100%",    padding: "20px"}}>
+            {statData && Object.keys(statData).length > 0 && (<div  style={{}}>
                 
                   <div>
                   League: {statData.league.name}
@@ -56,7 +56,7 @@ export default class Result extends Component{
             )}
             </div>
             }
-            </div>
+            </>
         )
     }
 }
